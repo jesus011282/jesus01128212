@@ -3,8 +3,7 @@
 session_start();
 
 if(isset($_SESSION['usuario']['TipoUsuario'])){
-    #var_dump($_SESSION['usuario']['TipoUsuario']);
-    // Moatrar lo que son los usuarios logueados
+    
     if($_SESSION['usuario']['TipoUsuario']==='pp'){
 
         $menuOptions='
@@ -25,7 +24,7 @@ if(isset($_SESSION['usuario']['TipoUsuario'])){
     }
 }
 else{
-         //Los usuarios no logueado
+         //El usuarios no logueado
          $menuOptions='
          <a href="index.php"> Inicio</a>
          <a href="registro.php">Registrarse</a>
@@ -76,7 +75,7 @@ else{
   </div>
   <div class="content">
     <h1>Mundo Creativo</h1>
-    <!-- La imagen que se ve en la porta de inicio de la papeleria) -->
+    <!-- La imagen que se ve en el inicio) -->
     <img src="logo.jpg" alt="Imagen de papelería">
     <p>
       Bienvenidos a Mundo Creativo, tu mejor opción en artículos de papelería y materiales de oficina.

@@ -1,12 +1,12 @@
 <?php
-$server ="localhost:3306";
+$server ="localhost:3309";
 $user ="root";
 $pass="";
-$db ="usuario";
+$db ="cliente";
 $conexion =new mysqli($server,$user,$pass,$db);
 if($conexion->connect_error){
 die("conexion fallida".$conexion->connect_error);
 }else{
-  //echo"conectado";
+  //Se conectado";
 }
-?>
+?>                                                                                                                                                                                                                                                                                                                                     

@@ -73,6 +73,7 @@
   <div class="container">
     <h2>Iniciar Sesión</h2>
     <form action="validacion.php" method="POST">
+    <form action="formulario.php" method="POST">
       <label for="IDUsuario">ID de Usuario:</label>
       <input type="text" id="IDUsuario" name="IDUsuario" required>
       

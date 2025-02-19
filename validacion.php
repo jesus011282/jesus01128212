@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'conexion.php'; // Archivo con la conexión a la base de datos
+include 'conexion.php'; // Se realiza lo que es  la conexión a la base de datos
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    
@@ -9,29 +9,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($IDUsuario) && !empty($Password)) {
         try {
-            $pdo = new PDO("mysql:host=localhost:3306;dbname=usuario", "root", "", [
+            $pdo = new PDO("mysql:host=localhost:3309;dbname=cliente", "root", "", [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
             ]);
 
-            $stmt = $pdo->prepare("SELECT * FROM USUARIOS WHERE IDUsuario = :idUsuario");
+            $stmt = $pdo->prepare("SELECT * FROM usuario WHERE  idusuarios = :idUsuario");
             $stmt->bindParam(':idUsuario', $IDUsuario, PDO::PARAM_STR);
             $stmt->execute();
             $usuario = $stmt->fetch();
             
-            #var_dump($Password);
-            #var_dump($usuario['contrasenia']);
+            var_dump($usuario);
+            var_dump($usuario['contrasenia']);
 
-            if ($IDUsuario == $usuario['IDUsuario'] && $Password == $usuario['contrasenia']) {
+            if ($IDUsuario == $usuario['idusuarios'] && $Password == $usuario['contrasenia']) {
                 $_SESSION['usuario'] = [
                     'idusuarios' => $usuario['IDUsuario'],
                     'nombre' => $usuario['Nombre'],
                     'apellidoPaterno' => $usuario['ApellidoPaterno'],
                     'apellidoMaterno' => $usuario['ApellidoMaterno'],
-                    'TipoUsuario' => $usuario['TipoUsuario']
+                    'rol' => $usuario['TipoUsuario']
                 ];
               
-                header("Location: index.php");
+                header("Location: formulario.php");
 
             } else {
                 echo "<h3>Usuario no registrado</h3>";
